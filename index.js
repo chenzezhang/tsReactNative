@@ -1,4 +1,6 @@
 import { AppRegistry } from 'react-native';
-import App from './App';
+import IosApp from './index.ios';
+import AndirApp from './index.android';
 
-AppRegistry.registerComponent('rockzcReactnative', () => App);
+AppRegistry.registerComponent('rockzcReactnative', () => IosApp);
+AppRegistry.registerComponent('rockzcReactnative', () => AndirApp);
