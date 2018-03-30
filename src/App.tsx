@@ -6,7 +6,7 @@
 
 import * as React from 'react';
 import { Provider } from 'react-redux';
-import { Hello } from './components/Hello';
+import Hello from './components/Hello';
 import store from './store/creatStore'
 
 type Props = {};

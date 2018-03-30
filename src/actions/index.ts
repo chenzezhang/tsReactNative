@@ -5,9 +5,9 @@ import {
   ADD_TODO,
 } from './../types/index';
 
-const addTodo = createAction<Todo, string>(
+const addTodo = createAction<Todo, number, string, string>(
   ADD_TODO,
-  (text: string) => ({ text, completed: false })
+  (id:number, text: string, completed: string) => ({ id, text, completed })
 );
 
 export { addTodo };

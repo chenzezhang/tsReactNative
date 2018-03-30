@@ -3,20 +3,24 @@ import { handleActions, Action } from 'redux-actions';
 import { Todo, IState } from './../actions/actionType';
 import { ADD_TODO } from './../types/index';
 
-const initialState: IState = 
-  [<Todo>{}];
+const initialState: Todo = 
+  {
+    id: 1,
+    text: 'user redux test',
+    completed: '第一次'
+  };
 
 export default handleActions<IState, Todo>({
   
   [ADD_TODO]: (state: IState, action: Action<Todo>): IState => {
-    console.log(action.payload,'~~~~~~~~~~~~~~~~~~~~')
     if (action.payload) { 
-      console.log(action.payload,'+++++++++++++++++++++++')
-      return [
-        {id: action.payload.id,
-        completed: action.payload.completed,
-        text: action.payload.text
-      }, ...state]
+      return {
+        ...state,
+        id: action.payload.id,
+        text: action.payload.text,
+        completed: action.payload.completed
+      
+      };
     } else {
       return state;
     }

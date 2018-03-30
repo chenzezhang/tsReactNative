@@ -1,7 +1,7 @@
 export interface Todo {
-  id?: number;
+  id: number;
   text: string;
-  completed: boolean;
+  completed: string;
 };
 
-export type IState = Todo[];
+export type IState = Todo;

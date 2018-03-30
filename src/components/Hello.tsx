@@ -1,33 +1,16 @@
 import * as React from 'react';
 
-import PropTypes, { func } from 'prop-types'
+import { View } from 'react-native';
 
-import { Button, StyleSheet, Text, View } from 'react-native';
+import Header from './Header';
 
-import { model } from '../reducer';
+import { Todo } from './../actions/actionType';
 
-import { Header } from './Header';
-
-import { Todo } from './../actions/actionType'
-
-const initialState: Todo = 
-  {
-    text: 'Use Redux with tetestsett',
-    completed: false,
-    id: 4
-  };
-
-export class Hello extends React.Component {
-  
-  static propTypes = {
-    id: PropTypes.number,
-    text: PropTypes.string,
-    completed: PropTypes.bool
-  }
+export default class Hello extends React.Component {
   render() {
     return (
       <View>
-        <Header todos = { initialState }  /> 
+        <Header /> 
       </View>
     );
   }

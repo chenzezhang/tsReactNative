@@ -8,11 +8,9 @@
   },
   "dependencies": {
     "@babel/core": "^7.0.0-beta.42",
-    "@types/prop-types": "^15.5.2",
     "@types/react-redux": "^5.0.15",
     "@types/redux-actions": "^2.2.4",
     "@types/redux-logger": "^3.0.5",
-    "prop-types": "^15.6.1",
     "react": "^16.3.0-alpha.1",
     "react-native": "0.54.2",
     "react-redux": "^5.0.7",
