@@ -1,67 +1,34 @@
-import React from 'react';
+import * as React from 'react';
+
+import PropTypes, { func } from 'prop-types'
+
 import { Button, StyleSheet, Text, View } from 'react-native';
 
-interface Props {
-  name: string;
-}
+import { model } from '../reducer';
 
-interface State {
-  date: Date;
-}
+import { Header } from './Header';
 
-export class Hello extends React.PureComponent<Props, State> {
-  constructor(props: Props) {
-    super(props);
-    this.state = { date: new Date() };
-  }
-  private updateDate = () => {
-    this.setState({
-      date: new Date()
-    })
+import { Todo } from './../actions/actionType'
+
+const initialState: Todo = 
+  {
+    text: 'Use Redux with tetestsett',
+    completed: false,
+    id: 4
   };
 
+export class Hello extends React.Component {
+  
+  static propTypes = {
+    id: PropTypes.number,
+    text: PropTypes.string,
+    completed: PropTypes.bool
+  }
   render() {
-    const { name, } = this.props;
-
     return (
-      <View style={styles.root}>
-        <Text style={styles.greeting}>
-          Hello {name  + '!'}
-        </Text>
-        <Text style={styles.greeting}>
-          Current Time: {this.state.date.toLocaleString()}
-        </Text>
-        <View style={styles.buttons}>
-          <View style={styles.button}>
-            <Button title="Update Time" onPress={this.updateDate} accessibilityLabel="decrement" color='red' />
-          </View>
-        </View>
+      <View>
+        <Header todos = { initialState }  /> 
       </View>
     );
   }
 }
-
-// styles
-
-const styles = StyleSheet.create({
-  root: {
-    alignItems: "center",
-    alignSelf: "center",
-    marginTop: 100
-  },
-  buttons: {
-    flexDirection: "row",
-    minHeight: 70,
-    alignItems: "stretch",
-    alignSelf: "center",
-    borderWidth: 5,
-  },
-  button: {
-    flex: 1,
-    paddingVertical: 0,
-  },
-  greeting: {
-    color: "#999",
-    fontWeight: "bold"
-  }
-});
