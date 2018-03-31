@@ -6,7 +6,17 @@ import Header from './Header';
 
 import { Todo } from './../actions/actionType';
 
+import { netWrok } from './../utils/request';
+
 export default class Hello extends React.Component {
+
+  componentWillMount() {
+    console.log('++++++++++++++++++++ts')
+    new netWrok('api/v5/index/newsFlash','get').request().then((data: any) => {
+      console.log(data)
+    })
+  }
+
   render() {
     return (
       <View>
