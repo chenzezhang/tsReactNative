@@ -8,7 +8,7 @@
  * @return 返回Promise
  */
 
-const http: string = 'https://m.gomemyc.com/'
+const http: string = '';
 
 const getHeaders: object = {
     header: {

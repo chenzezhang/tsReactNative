@@ -6,6 +6,8 @@ import { addTodo } from './../actions'
 import { Todo } from './../actions/actionType'
 import { Action } from 'redux-actions';
 
+import styles from './css/index'
+
 interface IContainerProps extends React.Props<Todo> {
   todos: Todo;
   addTodo: (id: number, text: string, completed: string) => Action<Todo>;
@@ -40,22 +42,4 @@ export class Header extends React.Component<IContainerProps, {}> {
   }
 }
 
-// const mapStateToProps = (state: any) => state.todo;
-
 export default connect(mapStateToProps, mapDispatchToProps)(Header);
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
-    backgroundColor: '#F5FCFF',
-  },
-  welcome: {
-    margin: 50,
-  },
-  instructions: {
-    color: '#333333',
-    marginBottom: 5,
-  },
-});

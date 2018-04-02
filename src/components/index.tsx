@@ -6,11 +6,10 @@ import Header from './Header';
 
 import { Todo } from './../actions/actionType';
 
-
 import SplashScreen from 'react-native-splash-screen'
 // import { netWrok } from './../utils/request';
 
-export default class Hello extends React.Component {
+export default class Index extends React.Component {
 
   componentWillMount() {
     // console.log('++++++++++++++++++++ts')
@@ -23,9 +22,9 @@ export default class Hello extends React.Component {
   }
 
     componentDidMount() {
-      console.log(SplashScreen,'+++++')
-    SplashScreen.hide();
-}
+      //启动图修改
+      SplashScreen.hide();
+    }
 
   render() {
     return (

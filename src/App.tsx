@@ -6,7 +6,7 @@
 
 import * as React from 'react';
 import { Provider } from 'react-redux';
-import Hello from './components/Hello';
+import Index from './components/index';
 import store from './store/creatStore'
 
 type Props = {};
@@ -14,7 +14,7 @@ export default class App extends React.Component<Props> {
   render() {
     return (
       <Provider store={store}>
-        <Hello />
+        <Index />
       </Provider>
     );
   }
