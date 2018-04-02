@@ -8,9 +8,25 @@
  */
 
 #import <UIKit/UIKit.h>
+#import "AppDelegate.h"
+#import "RCTRootView.h"
+#import "SplashScreen.h"
 
 @interface AppDelegate : UIResponder <UIApplicationDelegate>
 
 @property (nonatomic, strong) UIWindow *window;
 
+
+@implementation AppDelegate
+
+- (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
+{
+    // ...other code
+
+    [SplashScreen show];  // here
+    return YES;
+}
+
 @end
+
+

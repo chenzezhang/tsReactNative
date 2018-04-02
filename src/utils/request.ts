@@ -8,7 +8,7 @@
  * @return 返回Promise
  */
 
-const http: string = ''
+const http: string = 'https://m.gomemyc.com/'
 
 const getHeaders: object = {
     header: {
@@ -68,7 +68,7 @@ class netWrok implements netParams{
         return paramsArray.join('&')
     }
 
-    async request(): Promise<any> {
+    request(): Promise<any> {
         let date: string;
         let headers: object;
 
@@ -82,16 +82,12 @@ class netWrok implements netParams{
         
         const symbol = this.url.includes('?') ? '&' : '?';
 
-        return new Promise((resolve, reject) => {
-            fetch(http + this.url + symbol + new Date().valueOf(), {
+        return fetch(http + this.url + symbol + 't=' + new Date().valueOf(), {
                 method: this.method,
                 headers: { ...headers },
                 body: date
             })
-                .then(response => response.json())
-                .then(responseData => resolve(responseData))
-                .catch(err => reject(err));
-        })
+                .then(async response => await response.json())
     }
 }
 
