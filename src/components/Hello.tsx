@@ -22,46 +22,14 @@ export default class Hello extends React.Component {
     // })
   }
 
-  componentDidMount() {
+    componentDidMount() {
+      console.log(SplashScreen,'+++++')
     SplashScreen.hide();
 }
 
   render() {
     return (
-      <TouchableOpacity
-                style={styles.container}
-            >
-                <View >
-                    <Text style={styles.item}>
-                        SplashScreen 启动屏
-                    </Text>
-                    <Text style={styles.item}>
-                        @：http://www.devio.org/
-                    </Text>
-                    <Text style={styles.item}>
-                        GitHub:https://github.com/crazycodeboy
-                    </Text>
-                    <Text style={styles.item}>
-                        Email:crazycodeboy@gmail.com
-                    </Text>
-                </View>
-            </TouchableOpacity>
+      <Header />
     );
   }
 }
-
-const styles = StyleSheet.create({
-  container: {
-      flex: 1,
-      backgroundColor: '#f3f2f2',
-      marginTop: 30
-  },
-  item: {
-      fontSize: 20,
-  },
-  line: {
-      flex: 1,
-      height: 0.3,
-      backgroundColor: 'darkgray',
-  },
-})
