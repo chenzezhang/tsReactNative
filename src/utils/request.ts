@@ -2,10 +2,13 @@
  * @param {string} url 接口地址
  * @param {string} method 
  * @param {JSON} [params=''] body的请求参数，默认为空
+ * @param 调用格式：
+ *      get: fetch(url, 'get', {a:1,b:1})
+ *      post: fetch(url,'post',{a:1,b:1})
  * @return 返回Promise
  */
 
-const http: string = 'https://m.gomemyc.com/';
+const http: string = ''
 
 const getHeaders: object = {
     header: {
@@ -16,7 +19,7 @@ const getHeaders: object = {
 
 const postHeaders: object = {
     header: {
-        'Content-Type': 'application/x-www-form-urlencoded'
+        'Content-Type': 'application/x-www-form-urlencoded;charset=UTF-8'
     },
     credentials: 'include'
 }
@@ -24,26 +27,31 @@ const postHeaders: object = {
 interface netParams {
     url: string;
     method: string;
-    params?: any;
+    params: any;
 }
 
 class netWrok implements netParams{
 
     public url: string;
     public method: string;
-    public params?: any;
+    public params: any;
 
-    constructor(url: string, method: string, params?: any) {
+    constructor(url: string, method: string, params: any) {
         this.url = url;
-        this.method = method.toUpperCase();
+        this.method = method.toLowerCase();
         this.params = params;
     }
 
-    formatParam(): string {
+    // get参数格式化
+    formatGetParam(): string {
+
+        if (!this.params) {
+            return this.url;
+        }
         let paramsArray: Array<any> = [];
         
         Object.keys(this.params).forEach(key => paramsArray.push(key + '=' + this.params[key]))
-        if (this.url.search(/\?/) === -1) {
+        if (!this.url.includes('?')) {
             this.url += '?' + paramsArray.join('&')
         } else {
             this.url += '&' + paramsArray.join('&')
@@ -51,13 +59,27 @@ class netWrok implements netParams{
         return this.url;
     }
 
-    async request(): Promise<any> {
+    // post参数格式化
+    formatPostParam(): string {
+        
+        let paramsArray: Array<any> = [];
+        
+        Object.keys(this.params).forEach(key => paramsArray.push(key + '=' + this.params[key]))
+        return paramsArray.join('&')
+    }
 
-        const date = this.method == 'GET' ? null : JSON.stringify(this.params);
-        const headers = this.method == 'GET' ? getHeaders : postHeaders;
-        if (this.params) {
-            this.formatParam();
+    async request(): Promise<any> {
+        let date: string;
+        let headers: object;
+
+        if (this.method == 'GET') {
+            headers = getHeaders;
+            date = this.formatGetParam();
+        } else {
+            headers = postHeaders;
+            date = this.formatPostParam();
         }
+        
         const symbol = this.url.includes('?') ? '&' : '?';
 
         return new Promise((resolve, reject) => {
