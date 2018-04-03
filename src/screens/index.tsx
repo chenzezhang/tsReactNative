@@ -2,14 +2,18 @@ import * as React from 'react';
 
 import { View, TouchableOpacity, Text, StyleSheet } from 'react-native';
 
-import Header from './Header';
+import Header from './Header/Header';
 
 import { Todo } from './../actions/actionType';
 
 import SplashScreen from 'react-native-splash-screen'
 // import { netWrok } from './../utils/request';
 
-export default class Index extends React.Component {
+interface IContainerProps extends React.Props<Todo> {
+  navigation: any
+}
+
+export default class Index extends React.Component<IContainerProps> {
 
   componentWillMount() {
     // console.log('++++++++++++++++++++ts')
@@ -27,8 +31,14 @@ export default class Index extends React.Component {
     }
 
   render() {
+    const { navigate } = this.props.navigation;
+    console.log(this.props,'+++++++')
     return (
-      <Header />
+       
+      <TouchableOpacity onPressIn={() => navigate('Header', {}, {})}>
+      {/* <Header /> */}  
+          <Text>test onpressin ++++++</Text>
+        </TouchableOpacity>
     );
   }
 }

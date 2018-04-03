@@ -8,7 +8,7 @@
  * @return 返回Promise
  */
 
-const http: string = '';
+const http: string = ''
 
 const getHeaders: object = {
     header: {

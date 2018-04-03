@@ -2,8 +2,8 @@ import * as React from 'react';
 import { TouchableOpacity, View, Text, StyleSheet } from 'react-native';
 import { Dispatch } from 'redux';
 import { connect } from 'react-redux';
-import { addTodo } from './../actions'
-import { Todo } from './../actions/actionType'
+import { addTodo } from './../../actions'
+import { Todo } from './../../actions/actionType'
 import { Action } from 'redux-actions';
 
 import styles from './css/index'
