@@ -6,7 +6,6 @@
 
 import * as React from 'react';
 import { Provider } from 'react-redux';
-import Index from './screens/index';
 import store from './store/creatStore'
 
 import Router from './routers'
@@ -16,7 +15,6 @@ export default class App extends React.Component<Props> {
   render() {
     return (
       <Provider store={store}>
-        {/* <Index /> */}
         <Router />
       </Provider>
     );

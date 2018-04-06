@@ -1,6 +1,7 @@
-import { TabBarBottom} from 'react-navigation';
+import { TabBarBottom, TabNavigatorConfig } from 'react-navigation';
 
 /**
+ *  TabNavigatorConfig
     android:    
         activeTintColor：label和icon的前景色 活跃状态下（选中） 。
         inactiveTintColor：label和icon的前景色 不活跃状态下(未选中)。
@@ -26,33 +27,24 @@ import { TabBarBottom} from 'react-navigation';
  */
 
 interface navigationOptions {
-    title?: string;
-    tabBarVisible?: boolean;
-    tabBarIcon?: (tintColor: string, focused: boolean) => any;
     headerTitle?: string;
-    headerBackTitle?: string;
-    headerTruncatedBackTitle?: string;
     headerRight?: any;
     headerLeft?: any;
     headerStyle?: Object;
-    headerTitleStyle?: Object;
-    gestureResponseDistance?: Object;
+    headerTintColor?: Object;
 }
 
 interface StackOptions {
     initialRouteName?: string;
-    headerMode?: string;
-    mode?: string;
-    
     //当转换动画即将开始时被调用的功能
     onTransitionStart?: () => any;
     // 当转换动画完成，将被调用的功能。
     onTransitionEnd?: () => any;
-
     initialRouteParams?: Object;
 }
 
-interface tabNavigationOptions{
+interface tabNavigationOptions {
+    title?: string;
     tabBarVisible?: boolean;
     tabBarIcon?: (tintColor: string, focused: boolean) => any;
     tabBarLabel?: string;
@@ -71,78 +63,54 @@ interface tabOptions {
         inactiveBackgroundColor: string,
         inactiveTintColor: string,
         showLabel: boolean,
+        labelStyle?: Object
     };
 }
 
 class StackNavigationOptions implements navigationOptions {
-    
-    title?: string;
-    tabBarVisible?: boolean;
-    tabBarIcon?: (tintColor: string, focused: boolean) => any;
+
     headerTitle?: string;
-    headerBackTitle?: string;
-    headerTruncatedBackTitle?: string;
     headerRight?: any;
     headerLeft?: any;
     headerStyle?: Object;
-    headerTitleStyle?: Object;
-    gestureResponseDistance?: Object;
-
-    constructor(
-        title?: string,
-        tabBarVisible?: boolean,
-        tabBarIcon?: (tintColor: string,
-        focused?: boolean) => any,
-        headerTitle?: string,
-        headerBackTitle?: string,
-        headerTruncatedBackTitle?: string,
-        headerRight?: string,
-        headerLeft?: string,
-        headerStyle?: Object,
-        headerTitleStyle?: Object,
-        gestureResponseDistance?: Object) {
-            this.title = title;
-            this.tabBarVisible = tabBarVisible;
-            this.tabBarIcon = tabBarIcon;
-            this.headerTitle = headerTitle;
-            this.headerBackTitle = undefined;
-            this.headerTruncatedBackTitle = '返回';
-            this.headerRight = headerRight;
-            this.headerLeft = headerLeft;
-            this.headerStyle = { backgroundColor:"#4ECBFC" };
-            this.headerTitleStyle = {color:'white',fontWeight:'500'};
-            this.gestureResponseDistance = { horizontal:300 };
-    }
+    headerTintColor?: Object;
     
+    constructor(
+        headerTitle?: string,
+        headerRight?: any,
+        headerLeft?: any,
+        headerStyle?: Object,
+        headerTintColor?: Object)
+    {
+        this.headerTitle = headerTitle;
+        this.headerRight = headerRight;
+        this.headerLeft = headerLeft;
+        this.headerStyle = headerStyle;
+        this.headerTintColor = headerTintColor;
+    }
+
     resultOption(obj?: any) {
         if (obj) {
             const { navigation, screenProps } = obj;
         }
-        // 
-        // console.log(obj,'|||||||||||||||||||||||||||')
 
         return {
-            title: this.title,
-            tabBarVisible: this.tabBarVisible,
-            tabBarIcon: this.tabBarIcon,
             headerTitle: this.headerTitle,
-            headerTruncatedBackTitle: this.headerTruncatedBackTitle,
             headerRight: this.headerRight,
             headerLeft: this.headerLeft,
             headerStyle: this.headerStyle,
-            headerTitleStyle: this.headerTitleStyle,
-            gestureResponseDistance: this.gestureResponseDistance
+            headerTintColor: this.headerTintColor,
+            headerBackTitle: null,
+            headerTruncatedBackTitle: null,
+            headerTitleStyle: null
         }
     }
 
 }
 
 class StrackOptions implements StackOptions {
-    
+
     initialRouteName?: string;
-    headerMode?: string;
-    mode?: string;
-    
     initialRouteParams?: Object;
     //当转换动画即将开始时被调用的功能
     onTransitionStart?: () => any;
@@ -151,44 +119,41 @@ class StrackOptions implements StackOptions {
 
     constructor(initialRouteName?: string, headerMode?: string, mode?: string, initialRouteParams?: Object, onTransitionStart?: () => any, onTransitionEnd?: () => any) {
         this.initialRouteName = initialRouteName;
-        this.headerMode = 'screen';
-        this.mode = 'card';
         this.onTransitionStart = onTransitionStart;
         this.onTransitionEnd = onTransitionEnd;
         this.initialRouteParams = initialRouteParams;
     }
 
     resultOption(obj?: any) {
-        
+
         // const { navigation, screenProps } = obj;
-        
+
         return {
             initialRouteName: this.initialRouteName,
-            headerMode: this.headerMode,
-            mode: this.mode,
             onTransitionStart: this.onTransitionStart,
             onTransitionEnd: this.onTransitionEnd,
             initialRouteParams: this.initialRouteParams,
-
+            headerMode: 'screen',
+            mode: 'card',
         }
     }
 }
 
 class tabNavigationOptions implements tabNavigationOptions {
+    tabBarLabel?: string;
     tabBarVisible?: boolean;
     tabBarIcon?: (tintColor: string, focused: boolean) => any;
-    tabBarLabel?: string;
     tabBarOnPress?: (obj: Object) => any;
 
-    constructor(tabBarVisible?: boolean, tabBarIcon?: (tintColor: string, focused: boolean) => any, tabBarLabel?: string, tabBarOnPress?: (obj: Object) => any) {
+    constructor(tabBarLabel?: string, tabBarVisible?: boolean, tabBarIcon?: (tintColor: string, focused: boolean) => any, tabBarOnPress?: (obj: Object) => any) {
+        this.tabBarLabel = tabBarLabel;
         this.tabBarVisible = tabBarVisible;
         this.tabBarIcon = tabBarIcon;
-        this.tabBarLabel = tabBarLabel;
         this.tabBarOnPress = tabBarOnPress;
     }
 
     resultOption(obj?: any) {
-        const { navigation, screenProps } = obj;
+        // const { navigation, screenProps } = obj;
 
         return {
             tabBarVisible: this.tabBarVisible,
@@ -197,55 +162,34 @@ class tabNavigationOptions implements tabNavigationOptions {
             tabBarOnPress: this.tabBarOnPress
         }
     }
-    
+
 }
 
-class tabOptions implements tabOptions {
+/**
+ * @param 底部导航栏设置。 
+ */
 
-    tabBarPosition?: string;
-    swipeEnabled?: boolean;
-    animationEnabled?: boolean;
-    tabBarComponent?: any;
-    tabBarOptions?: {
-        style: Object;
-        activeBackgroundColor: string,
-        activeTintColor: string,
-        inactiveBackgroundColor: string,
-        inactiveTintColor: string,
-        showLabel: boolean,
-    };
-
-    constructor(
-        tabBarPosition?: string,
-        swipeEnabled?: boolean,
-        animationEnabled?: boolean,
-        tabBarOptions?: { style: Object;
-            activeBackgroundColor: string,
-            activeTintColor: string,
-            inactiveBackgroundColor: string,
-            inactiveTintColor: string,
-            showLabel: boolean
+const tabOptions:TabNavigatorConfig = {
+    tabBarPosition: 'bottom',
+    swipeEnabled: false,
+    animationEnabled: false,
+    tabBarOptions: {
+        style: {
+            backgroundColor: '#ffffff',
+            height: 52
         },
-        tabBarComponent?: any,
-    ) {
-        this.tabBarPosition = tabBarPosition;
-        this.swipeEnabled = false;
-        this.animationEnabled = false;
-        this.tabBarOptions = tabBarOptions;
-        this.tabBarComponent = TabBarBottom;
-    }
-
-    resultOption(obj?: any) {
-        // const { navigation, screenProps } = obj;
-        
-        return {
-            tabBarPosition: this.tabBarPosition,
-            swipeEnabled: this.swipeEnabled,
-            animationEnabled: this.animationEnabled,
-            tabBarOptions: this.tabBarOptions
-
+        activeBackgroundColor: '#ffffff',
+        activeTintColor: '#C2A357',
+        inactiveBackgroundColor: '#ffffff',
+        inactiveTintColor: '#979FA7',
+        showLabel: true,
+        labelStyle: {
+            fontSize: 14,
+            marginBottom: 4.5,
         }
-    }
+    },
+    tabBarComponent: TabBarBottom,
+    lazy: true
 }
 
 export {
@@ -254,7 +198,3 @@ export {
     tabNavigationOptions,
     tabOptions
 }
-
-// export const AppNavigator = StackNavigator({
-//     Header: { screen: Header, navigationOptions: {}},
-//   });

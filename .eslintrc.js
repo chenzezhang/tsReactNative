@@ -16,7 +16,11 @@ module.exports = {
       // https://github.com/facebook/react-native/blob/8baaad9b0fbda2b02bb1834452aa63cac7910dc5/.eslintrc
       "global-require": 0,
       "no-use-before-define": 0,       // disallow use of variables before they are defined
-      "max-len": 0,                    // specify the maximum length of a line in your program (off by default)
+      "max-len": [
+        2,
+        120,
+        2
+    ],                    // specify the maximum length of a line in your program (off by default)
       "no-console": 0,                 // disallow use of console (off by default in the node environment)
       "no-undef": 2,                   // disallow use of undeclared variables unless mentioned in a /*global */ block
       "no-unused-vars": 0,
@@ -30,6 +34,23 @@ module.exports = {
       "react/self-closing-comp": 1,
       "react/jsx-closing-bracket-location": 0,
       "react/prop-types": 0, // 避免redux等注入属性的情况
+      'prettier/prettier': ['error', { tabWidth: 4 }],
+      "indent": [
+          "error",
+          "tab"
+      ],
+      "linebreak-style": [
+          "error",
+          "unix"
+      ],
+      "quotes": [
+          "error",
+          "double"
+      ],
+      "semi": [
+          "error",
+          "always"
+      ]
     },
     // 这里设置可能用到的全局变量
     "globals": {
