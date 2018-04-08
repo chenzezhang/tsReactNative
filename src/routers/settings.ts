@@ -46,9 +46,8 @@ interface StackOptions {
 interface tabNavigationOptions {
     title?: string;
     tabBarVisible?: boolean;
-    tabBarIcon?: (tintColor: string, focused: boolean) => any;
+    tabBarIcon?: (focused: boolean, tintColor: string) => any;
     tabBarLabel?: string;
-    tabBarOnPress?: (obj: Object) => any;
 }
 
 interface tabOptions {
@@ -142,14 +141,12 @@ class StrackOptions implements StackOptions {
 class tabNavigationOptions implements tabNavigationOptions {
     tabBarLabel?: string;
     tabBarVisible?: boolean;
-    tabBarIcon?: (tintColor: string, focused: boolean) => any;
-    tabBarOnPress?: (obj: Object) => any;
+    tabBarIcon?: (focused: boolean, tintColor: string) => any;
 
-    constructor(tabBarLabel?: string, tabBarVisible?: boolean, tabBarIcon?: (tintColor: string, focused: boolean) => any, tabBarOnPress?: (obj: Object) => any) {
+    constructor(tabBarLabel?: string, tabBarVisible?: boolean, tabBarIcon?: (focused: boolean, tintColor: string) => any) {
         this.tabBarLabel = tabBarLabel;
         this.tabBarVisible = tabBarVisible;
         this.tabBarIcon = tabBarIcon;
-        this.tabBarOnPress = tabBarOnPress;
     }
 
     resultOption(obj?: any) {
@@ -159,7 +156,6 @@ class tabNavigationOptions implements tabNavigationOptions {
             tabBarVisible: this.tabBarVisible,
             tabBarIcon: this.tabBarIcon,
             tabBarLabel: this.tabBarLabel,
-            tabBarOnPress: this.tabBarOnPress
         }
     }
 
@@ -169,7 +165,8 @@ class tabNavigationOptions implements tabNavigationOptions {
  * @param 底部导航栏设置。 
  */
 
-const tabOptions:TabNavigatorConfig = {
+const tabOptions: TabNavigatorConfig = {
+    initialRouteName: 'Index',
     tabBarPosition: 'bottom',
     swipeEnabled: false,
     animationEnabled: false,
@@ -186,7 +183,8 @@ const tabOptions:TabNavigatorConfig = {
         labelStyle: {
             fontSize: 14,
             marginBottom: 4.5,
-        }
+        },
+        showIcon: true,
     },
     tabBarComponent: TabBarBottom,
     lazy: true

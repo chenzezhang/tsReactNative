@@ -2,6 +2,7 @@ import * as React from 'react';
 import { View , Text} from 'react-native';
 import { Index, Header, Financial, Consumption, Fund, Insurance } from './../screens/router';
 import { TabBarBottom } from 'react-navigation';
+import TabBarItem from './../components/index/TabBarItem';
 
 /**
  * @param 实现分路由管理。 
@@ -40,49 +41,76 @@ const IndexNavigator = StackNavigator({
 /**
  * @param 类似底部导航栏目跳转
  */
-
 const AppTabNavigator = TabNavigator({
 
     Index: {    // 首页
         screen: IndexNavigator,
         navigationOptions: ({ navigation, screenProps }: any) => ({
-            ...new tabNavigationOptions('首页', true,).resultOption({ navigation, screenProps })
+            ...new tabNavigationOptions('首页', true, (focused: boolean, tintColor: string): any => (
+                <TabBarItem
+                focused={focused}  
+                normalImage={require('./../static/imgs/index.png')}  
+                selectedImage={require('./../static/imgs/index_acti.png')}  />
+            ), ).resultOption({ navigation, screenProps })
         }),
     },
     Fund: {     // 基金
         screen: Fund,
-        navigationOptions: ({ navigation, screenProps }: any) => ({
-            ...new tabNavigationOptions('基金', true,).resultOption({ navigation, screenProps })
+        navigationOptions: ({ navigation, screenProps }: any): any => ({
+            ...new tabNavigationOptions('基金', true, (focused: boolean, tintColor: string) => (
+            <TabBarItem
+            focused={focused}  
+            normalImage={require('./../static/imgs/fund.png')}  
+                selectedImage={require('./../static/imgs/fund_acti.png')} />
+            )).resultOption({ navigation, screenProps })
         }),
     },
     Financial: { // 理财
         screen: Financial,
         navigationOptions: ({ navigation, screenProps }: any) => ({
-            ...new tabNavigationOptions('理财', true,).resultOption({ navigation, screenProps })
+            ...new tabNavigationOptions('理财', true, (focused: boolean, tintColor: string): any => (
+                <TabBarItem
+                focused={focused}  
+                normalImage={require('./../static/imgs/financial.png')}  
+                selectedImage={require('./../static/imgs/financial_acti.png')}  />
+            )).resultOption({ navigation, screenProps })
         }),
     },
     Insurance: {  // 保险
         screen: Insurance,
         navigationOptions: ({ navigation, screenProps }: any) => ({
-            ...new tabNavigationOptions('保险', true,).resultOption({ navigation, screenProps })
+            ...new tabNavigationOptions('保险', true, (focused: boolean, tintColor: string): any => (
+                <TabBarItem
+                focused={focused}  
+                normalImage={require('./../static/imgs/insurance.png')}  
+                selectedImage={require('./../static/imgs/insurance_acti.png')}  />
+            )).resultOption({ navigation, screenProps })
         }),
     },
     Consumption: {  // 消费
         screen: Consumption,
         navigationOptions: ({ navigation, screenProps }: any) => ({
-            ...new tabNavigationOptions('消费', true,).resultOption({ navigation, screenProps }) 
+            ...new tabNavigationOptions('消费', true, (focused: boolean, tintColor: string): any => (
+                <TabBarItem
+                focused={focused}  
+                normalImage={require('./../static/imgs/consumption.png')}  
+                selectedImage={require('./../static/imgs/consumption_acti.png')}  />
+            )).resultOption({ navigation, screenProps }) 
         }),
     },
 }, tabOptions
 );
 
-type props = {};
+type props = {
+};
 
 export default class Router extends React.Component<props> {
+
     render() {
+      
         return (
             <View style={{height: '100%',width:'100%'}}>
-               <AppTabNavigator />
+                <AppTabNavigator />
             </View>
         );
     }

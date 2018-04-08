@@ -3,7 +3,8 @@
   "version": "0.0.1",
   "private": true,
   "scripts": {
-    "start": "node node_modules/react-native/local-cli/cli.js start",
+    "start1": "node node_modules/react-native/local-cli/cli.js start",
+    "start": "rm -rf ./lib/static & cp -r src/static ./lib & react-native run-ios",
     "test": "jest"
   },
   "dependencies": {
