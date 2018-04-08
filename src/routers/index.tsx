@@ -3,6 +3,7 @@ import { View , Text} from 'react-native';
 import { Index, Header, Financial, Consumption, Fund, Insurance } from './../screens/router';
 import { TabBarBottom } from 'react-navigation';
 import TabBarItem from './../components/index/TabBarItem';
+import { HeaderCentent, HeaderLeft, HeaderRight } from './../components/header';
 
 /**
  * @param 实现分路由管理。 
@@ -27,7 +28,12 @@ const IndexNavigator = StackNavigator({
     Index: {
         screen: Index,
         navigationOptions: ({ navigation, screenProps }: any) => ({
-            ...new StackNavigationOptions('首页').resultOption({ navigation, screenProps }), ...new StrackOptions().resultOption() 
+            ...new StackNavigationOptions(
+                (<HeaderCentent logoImage={require('./../static/index/logo.png')} />),
+                (<HeaderRight text={'登录'}/>),
+                (<HeaderLeft userInfoImage={require('./../static/index/headTip.png')} />),
+                {height: 48, backgroundColor: null, borderBottomWidth: null, borderBottomColor: null},
+            ).resultOption({ navigation, screenProps }), ...new StrackOptions().resultOption() 
         }),
     },
     Header: {

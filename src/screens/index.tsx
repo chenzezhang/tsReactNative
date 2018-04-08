@@ -1,11 +1,12 @@
 import * as React from 'react';
 
-import { View, TouchableOpacity, Text, StyleSheet } from 'react-native';
+import { View, TouchableOpacity, Text, StyleSheet, Image } from 'react-native';
 
 import { Todo } from './../actions/actionType';
 
 import SplashScreen from 'react-native-splash-screen'
 import { navigation } from './../utils/result';
+import TitleBackground from './../components/header/titleBackground';
 
 const data = navigation().then((data: any) => {
   console.log(data)
@@ -38,9 +39,20 @@ export default class Index extends React.Component<IContainerProps> {
     console.log(this.props,'+++++++')
     return (
        
-      <TouchableOpacity onPressIn={() => navigate('Header', {test:111,aaa:33333}, {})}>
-          <Text>test onpressin ++++++</Text>
-        </TouchableOpacity>
+      // <TouchableOpacity onPressIn={() => navigate('Header', {test:111,aaa:33333}, {})}>
+      //     <Text>test onpressin ++++++</Text>
+      //   </TouchableOpacity>
+      <View style={style.view}>
+        <TitleBackground background={require('./../static/index/dropdown.png')} />
+      </View>
     );
   }
 }
+
+
+const style = StyleSheet.create({
+  view: {
+    position: 'absolute', top: -68, left: 0
+  },
+});
+  

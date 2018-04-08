@@ -27,10 +27,10 @@ import { TabBarBottom, TabNavigatorConfig } from 'react-navigation';
  */
 
 interface navigationOptions {
-    headerTitle?: string;
+    headerTitle?: any;
     headerRight?: any;
     headerLeft?: any;
-    headerStyle?: Object;
+    headerStyle?: any;
     headerTintColor?: Object;
 }
 
@@ -68,17 +68,17 @@ interface tabOptions {
 
 class StackNavigationOptions implements navigationOptions {
 
-    headerTitle?: string;
+    headerTitle?: any;
     headerRight?: any;
     headerLeft?: any;
-    headerStyle?: Object;
+    headerStyle?: any;
     headerTintColor?: Object;
     
     constructor(
-        headerTitle?: string,
+        headerTitle?: any,
         headerRight?: any,
         headerLeft?: any,
-        headerStyle?: Object,
+        headerStyle?: any,
         headerTintColor?: Object)
     {
         this.headerTitle = headerTitle;

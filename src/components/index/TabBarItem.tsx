@@ -1,8 +1,6 @@
 import * as React from 'react';
 import { Image, ImageURISource } from 'react-native';
 
-import styles from './TabBarItemCss';
-
 /**
  * @param {focused,selectedImage,normalImage}
  *  底部导航栏

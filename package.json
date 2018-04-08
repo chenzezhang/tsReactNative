@@ -4,7 +4,8 @@
   "private": true,
   "scripts": {
     "start1": "node node_modules/react-native/local-cli/cli.js start",
-    "start": "rm -rf ./lib/static & cp -r src/static ./lib & react-native run-ios",
+    "start": "react-native run-ios",
+    "copy": "rm -rf ./lib/static & cp -r src/static ./lib ",
     "test": "jest"
   },
   "dependencies": {
