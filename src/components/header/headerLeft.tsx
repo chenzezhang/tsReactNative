@@ -27,9 +27,8 @@ const style = StyleSheet.create({
         marginLeft: 12,
     },
     imgStyle: {
-        width: 30,
-        height: 30,
-        resizeMode:'contain'
+        width: 34,
+        height: 34,
     }
 });
     

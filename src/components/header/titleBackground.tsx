@@ -21,7 +21,7 @@ export default class TitleBackground extends React.Component<props> {
 
 const style = StyleSheet.create({
     imgStyle: {
-        resizeMode:'contain'
+        top: -54,
     }
 });
     

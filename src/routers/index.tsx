@@ -29,10 +29,10 @@ const IndexNavigator = StackNavigator({
         screen: Index,
         navigationOptions: ({ navigation, screenProps }: any) => ({
             ...new StackNavigationOptions(
-                (<HeaderCentent logoImage={require('./../static/index/logo.png')} />),
+               '',
                 (<HeaderRight text={'登录'}/>),
                 (<HeaderLeft userInfoImage={require('./../static/index/headTip.png')} />),
-                {height: 48, backgroundColor: null, borderBottomWidth: null, borderBottomColor: null},
+                { backgroundColor: null, borderBottomWidth: null, borderBottomColor: null},
             ).resultOption({ navigation, screenProps }), ...new StrackOptions().resultOption() 
         }),
     },

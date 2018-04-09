@@ -23,7 +23,8 @@ export default class HeaderRight extends React.Component<props> {
 const style = StyleSheet.create({
   text: {
       marginRight: 12,
-      color: '#fff'
+      color: '#fff',
+      fontSize: 15
   },
 });
   

@@ -3,4 +3,4 @@
  */
 
 // 首页底部导航
-export const tabNavtion = '/api/v1/config/navigation';
+export const indexBanner = '/api/v2/config/indexStyle';

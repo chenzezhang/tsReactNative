@@ -6,7 +6,8 @@
     "start1": "node node_modules/react-native/local-cli/cli.js start",
     "start": "react-native run-ios",
     "copy": "rm -rf ./lib/static & cp -r src/static ./lib ",
-    "test": "jest"
+    "test": "jest",
+    "iosbundle": "react-native bundle --entry-file index.js --bundle-output ./ios/main.jsbundle --platform ios"
   },
   "dependencies": {
     "@babel/core": "^7.0.0-beta.42",
@@ -17,6 +18,8 @@
     "react": "^16.3.0-alpha.1",
     "react-native": "0.54.2",
     "react-native-splash-screen": "^3.0.6",
+    "react-native-swiper": "^1.5.13",
+    "react-native-typescript-transformer": "^1.2.4",
     "react-navigation": "^1.5.9",
     "react-redux": "^5.0.7",
     "redux": "^3.7.2",

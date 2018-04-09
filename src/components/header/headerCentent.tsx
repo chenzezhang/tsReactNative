@@ -16,7 +16,7 @@ export default class HeaderCentent extends React.Component<props> {
     return (
         <Image source={ logoImage }
             style={{ width: 75, height: 23 }}
-        />  
+        /> 
     );
   }
 }

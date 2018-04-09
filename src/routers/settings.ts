@@ -97,7 +97,9 @@ class StackNavigationOptions implements navigationOptions {
             headerTitle: this.headerTitle,
             headerRight: this.headerRight,
             headerLeft: this.headerLeft,
-            headerStyle: this.headerStyle,
+            headerStyle: {
+                ...this.headerStyle, height: 34
+            },
             headerTintColor: this.headerTintColor,
             headerBackTitle: null,
             headerTruncatedBackTitle: null,

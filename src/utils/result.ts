@@ -3,12 +3,13 @@
  */
 
 import netWrok from './request';
-import { tabNavtion } from './api';
+import { indexBanner } from './api';
 
 
 // 底部导航栏
-const navigation = () => {
-    return new netWrok(tabNavtion, 'get', {}).request().then(async response => console.log(response.json));
+const navigation = async () => {
+    const { data } = await new netWrok(indexBanner, 'get', {}).request();
+    return data;
 }
 
 export {
