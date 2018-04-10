@@ -4,20 +4,16 @@ import style from './SlideBannerCss';
 import Swiper from 'react-native-swiper';
 import { navigation } from './../../utils/result';
 
-
 /**
  * @param {slideImg}
  *  滑动banner
  */
-
 interface props  {
     slideImg?: ImageURISource;
 }
-
 interface IState {
     indexBannerList: string[];
 }
-
 export default class SlideBanner extends React.Component<props, IState> {
 
     state = {
@@ -27,7 +23,6 @@ export default class SlideBanner extends React.Component<props, IState> {
     componentWillMount() { 
         navigation().then(res => {
             this.setState({ indexBannerList: res.indexBannerList.map((item: any) => item.imageUrl) });
-            
         })
     }
 
@@ -35,17 +30,16 @@ export default class SlideBanner extends React.Component<props, IState> {
 
         const { slideImg } = this.props;
         const { indexBannerList } = this.state;
-        
-
+    
     return (
         <View style={style.container}>
-            <Swiper
-                dot={<View style={{backgroundColor: 'rgba(255,255,255,.7)', borderRadius: 2, width: 5, height: 5, marginRight: 6}} />}
-                activeDot={<View style={{ backgroundColor: 'rgba(255,255,255,1)', width: 5, borderRadius: 2, height: 5, marginRight: 6}} />}
+            <Swiper key={indexBannerList.length}
+                dot={<View style={style.dot} />}
+                activeDot={<View style={style.activeDot} />}
                 paginationStyle={{
             bottom: 5
-                }} >
-                {indexBannerList.map(item => 
+                }}>
+                {indexBannerList.map((item, i) => 
                     <View key={item} >
                         <Image style={{height: 89, width: 346}} source={{ uri: item }}/>
                     </View>

@@ -8,11 +8,7 @@ import SplashScreen from 'react-native-splash-screen'
 import { navigation } from './../utils/result';
 import TitleBackground from './../components/header/titleBackground';
 import SlideBanner from './../components/index/SlideBanner';
-
-// const data = navigation().then((data: any) => {
-//   console.log(data)
-// });
-// console.log(data,'+++++++++')
+import List from './../components/index/list';
 
 interface IContainerProps extends React.Props<Todo> {
   navigation: any
@@ -21,36 +17,31 @@ interface IContainerProps extends React.Props<Todo> {
 export default class Index extends React.Component<IContainerProps> {
 
   componentWillMount() {
-    // console.log('++++++++++++++++++++ts')
-    // new netWrok('api/v5/index/newsFlash', 'get', {}).request().then((data: any) => {
-    //   console.log(data)
-    // })
-    // new netWrok('plugin/api/setBasic', 'post', {}).request().then((data: object) => {
-    //   console.log(data)
-    // })
+
   }
 
-    componentDidMount() {
-      //启动图修改
-      SplashScreen.hide();
-    }
+  componentDidMount() {
+    //启动图修改
+    SplashScreen.hide();
+  }
 
   render() {
     const { navigate } = this.props.navigation;
-    console.log(this.props,'+++++++')
+    console.log(this.props, '+++++++')
     return (
-       
+
       // <TouchableOpacity onPressIn={() => navigate('Header', {test:111,aaa:33333}, {})}>
       //     <Text>test onpressin ++++++</Text>
       //   </TouchableOpacity>
-      <View style={{top: -54}}>
+      <View style={{ top: -54 }}>
         <View style={style.view}>
-        <TitleBackground background={require('./../static/index/dropdown.png')} />
-        <View style={style.showMess}>
-          <Image style={style.image} source={require('./../static/index/noLogin.png')} />
+          <TitleBackground background={require('./../static/index/dropdown.png')} />
+          <View style={style.showMess}>
+            <Image style={style.image} source={require('./../static/index/noLogin.png')} />
+          </View>
         </View>
-        </View>
-      <SlideBanner />  
+        <SlideBanner />
+        <List />
       </View>
     );
   }
@@ -78,4 +69,3 @@ const style = StyleSheet.create({
     height: 137,
   }
 });
-  

@@ -30,7 +30,7 @@ const IndexNavigator = StackNavigator({
         navigationOptions: ({ navigation, screenProps }: any) => ({
             ...new StackNavigationOptions(
                '',
-                (<HeaderRight text={'登录'}/>),
+                (<HeaderRight text={'登录'}/>), 
                 (<HeaderLeft userInfoImage={require('./../static/index/headTip.png')} />),
                 { backgroundColor: null, borderBottomWidth: null, borderBottomColor: null},
             ).resultOption({ navigation, screenProps }), ...new StrackOptions().resultOption() 
@@ -115,7 +115,7 @@ export default class Router extends React.Component<props> {
     render() {
       
         return (
-            <View style={{height: '100%',width:'100%'}}>
+            <View style={{flex: 1}}>
                 <AppTabNavigator />
             </View>
         );
