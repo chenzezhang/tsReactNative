@@ -75,7 +75,15 @@ export default class List extends React.Component<props, IState> {
     <Text>sdfsdfsdfsdf</Text>;
     <Text>sdfsdfsdfsdf</Text>;
     <Text>sdfsdfsdfsdf</Text>;
-                                        
+                
+
+
+                <Text>111111111</Text>;
+    <Text>111111111</Text>;<Text>sdfsdfsdfsdf</Text>;<Text>111111111</Text>;
+    <Text>111111111</Text>;
+    <Text>111111111</Text>;
+    <Text>111111111</Text>;
+                                                    
             </View>
         );
   }

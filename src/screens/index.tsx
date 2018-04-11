@@ -2,17 +2,24 @@ import * as React from 'react';
 
 import { View, TouchableOpacity, Text, StyleSheet, Image } from 'react-native';
 
-import { Todo } from './../actions/actionType';
+import ListViewContent from './../utils/ListView';
 
+import { Todo } from './../actions/actionType';
 import SplashScreen from 'react-native-splash-screen'
 import { navigation } from './../utils/result';
 import TitleBackground from './../components/header/titleBackground';
 import SlideBanner from './../components/index/SlideBanner';
 import List from './../components/index/list';
 
-interface IContainerProps extends React.Props<Todo> {
+interface IContainerProps {
   navigation: any
 }
+
+const dimensions = require("Dimensions");
+
+const { width, height } = dimensions.get("window");
+
+const ListViewHeight = height - 52;
 
 export default class Index extends React.Component<IContainerProps> {
 
@@ -27,26 +34,29 @@ export default class Index extends React.Component<IContainerProps> {
 
   render() {
     const { navigate } = this.props.navigation;
-    console.log(this.props, '+++++++')
-    return (
-
-      // <TouchableOpacity onPressIn={() => navigate('Header', {test:111,aaa:33333}, {})}>
-      //     <Text>test onpressin ++++++</Text>
-      //   </TouchableOpacity>
-      <View style={{ top: -54 }}>
+    console.log(height,'++++++')
+    const views = (
+      <View >
         <View style={style.view}>
-          <TitleBackground background={require('./../static/index/dropdown.png')} />
           <View style={style.showMess}>
             <Image style={style.image} source={require('./../static/index/noLogin.png')} />
           </View>
         </View>
         <SlideBanner />
+        <View style={{backgroundColor: '#f0f0f0', height: 10}} />
         <List />
       </View>
+    )
+
+    return (
+      <View>
+        <TitleBackground background={require('./../static/index/dropdown.png')} />
+        <ListViewContent style={{top: -54, height: ListViewHeight}} children={ views } /> 
+     </View>
     );
+  
   }
 }
-
 
 const style = StyleSheet.create({
   view: {
@@ -54,7 +64,8 @@ const style = StyleSheet.create({
     flexDirection: 'row',
     width: 375,
     height: 229,
-    overflow: 'hidden'
+    overflow: 'hidden',
+    flex: 1,
   },
   showMess: {
     width: 340,
