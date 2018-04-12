@@ -1,5 +1,5 @@
 
-import { StyleSheet } from 'react-native';
+import { StyleSheet, PixelRatio } from 'react-native';
 
 export default StyleSheet.create({
     container: {
@@ -9,6 +9,8 @@ export default StyleSheet.create({
         paddingBottom: 14,
         justifyContent: 'space-between',
         flexDirection: 'row',
+        borderTopColor: '#eee',
+        borderTopWidth: 1/PixelRatio.get(),
     },
     headerLeft: {
         width: 69,
@@ -24,12 +26,12 @@ export default StyleSheet.create({
         lineHeight: 20,
     },
     headerRight: {
-        width: 145,
         height: 20,
         fontSize: 14,
         lineHeight: 20,
         color: '#6F6F4D',
         alignItems: 'center', 
-        justifyContent: 'center'
+        justifyContent: 'center',
+        textAlign: 'right'
     }
 });

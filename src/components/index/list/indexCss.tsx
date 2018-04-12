@@ -4,7 +4,7 @@ import { StyleSheet, PixelRatio } from 'react-native';
 export default StyleSheet.create({
 
     container: {
-        backgroundColor: '#fff'
+        backgroundColor: '#fff',
     },
     listCentent: {
         height: 258

@@ -3,6 +3,7 @@ import { View, Text, Image, ImageURISource, ImageBackground } from 'react-native
 import style from './indexCss';
 import Header from './header';
 import LinearGradient from 'react-native-linear-gradient';
+import ListItem from './ListItem';
 
 /**
  * @param {}
@@ -39,7 +40,7 @@ export default class List extends React.Component<props, IState> {
                         </ImageBackground>
                     </View>
                     <View style={style.listCententItem}>
-                        <Header tip={'新人专享'} title={'啊撒旦法撒旦法地方啊撒旦法撒旦法地方啊撒旦法撒旦法地方'} />
+                        <Header tip={'新人专享'} title={'一个很独特的标的。'} />
                         <View style={style.listCententItemCentent}>
                             <View style={style.pubView}>
                                 <View style={style.left}>
@@ -70,19 +71,16 @@ export default class List extends React.Component<props, IState> {
                     </View>
                 </View>
                 
-    <Text>sdfsdfsdfsdf</Text>;
-    <Text>sdfsdfsdfsdf</Text>;<Text>sdfsdfsdfsdf</Text>;<Text>sdfsdfsdfsdf</Text>;
-    <Text>sdfsdfsdfsdf</Text>;
-    <Text>sdfsdfsdfsdf</Text>;
-    <Text>sdfsdfsdfsdf</Text>;
-                
+
+                <ListItem refresh={'16.2'} date={'59'} sourceImag={require('./../../../static/index/button.png')} tip={'热卖理财'} title={'美宝保1号8376103829'} />
+                <ListItem refresh={'19'} date={'187'} sourceImag={require('./../../../static/index/button.png')} tip={'活期理财'} title={'每天盈'} />
 
 
-                <Text>111111111</Text>;
+                {/* <Text>111111111</Text>;
     <Text>111111111</Text>;<Text>sdfsdfsdfsdf</Text>;<Text>111111111</Text>;
     <Text>111111111</Text>;
     <Text>111111111</Text>;
-    <Text>111111111</Text>;
+    <Text>111111111</Text>; */}
                                                     
             </View>
         );

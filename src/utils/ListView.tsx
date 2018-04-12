@@ -50,7 +50,6 @@ export default class ListViewContent extends React.Component<props, State> {
                     refreshControl={
                         <RefreshControl
                             refreshing={this.state.refreshing}
-                            tintColor="#ff0000"
                             title={this.state.refreshing ? '加载中。。。。' : '放手'}
                             titleColor="#00ff00"
                             onRefresh={() => this._onRefresh()}
@@ -63,7 +62,6 @@ export default class ListViewContent extends React.Component<props, State> {
                     scrollEventThrottle={50}
                 />
             </View>
-           
         )
       }
 }
