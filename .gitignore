@@ -59,3 +59,8 @@ lib/
 # Jest
 #
 .jest/
+ios/bundle
+ios/main.jsbundle
+ios/mian.jsbundle.meta
+ios/rockzcReactnative/AppDelegate.m
+ios/rockzcReactnative/Info.plist

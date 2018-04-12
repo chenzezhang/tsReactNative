@@ -7,7 +7,7 @@
     "start": "react-native run-ios",
     "copy": "rm -rf ./lib/static & cp -r src/static ./lib ",
     "test": "jest",
-    "iosbundle": "react-native bundle --entry-file index.js --bundle-output ./ios/main.jsbundle --platform ios"
+    "iosbundle": "react-native bundle --entry-file index.js --bundle-output ./ios/main.jsbundle --platform ios --assets-dest ./ios/bundle --dev false"
   },
   "dependencies": {
     "@babel/core": "^7.0.0-beta.42",
