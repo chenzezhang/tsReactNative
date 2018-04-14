@@ -34,3 +34,10 @@ npm run iosbundle
         build
     </li>
 </ol>
+
+
+> ### android 使用（react-native-splash-screen） 出现问题编译不过去的时候，请查看以下网址：
+
+```
+https://github.com/crazycodeboy/react-native-splash-screen/issues/167
+```

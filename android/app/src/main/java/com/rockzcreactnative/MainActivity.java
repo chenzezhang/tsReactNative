@@ -1,9 +1,10 @@
-import android.os.Bundle;
-package com.rockzcreactnative;
-import com.facebook.react.ReactActivity;
-import org.devio.rn.splashscreen.SplashScreen;
 
-import com.cboy.rn.splashscreen.SplashScreen;
+package com.rockzcreactnative;
+import android.os.Bundle;
+
+import com.facebook.react.ReactActivity;
+
+import org.devio.rn.splashscreen.SplashScreen;
 
 public class MainActivity extends ReactActivity {
 
@@ -18,7 +19,7 @@ public class MainActivity extends ReactActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-        SplashScreen.show(this);  // here
+        SplashScreen.show(this, true);  // here
         super.onCreate(savedInstanceState);
     }
 }
