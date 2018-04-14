@@ -37,8 +37,8 @@ export default class ListItem extends React.Component<Props, State> {
                     <View style={style.listViewCenter}>
                         <View style={style.listItemLeft}>
                             <View style={style.pubView}>
-                                <Text style={style.listItemText1}> {refresh} </Text>
-                                <Text style={style.listItemText2}> {rate} </Text>
+                                <Text style={style.listItemText1}>{refresh}</Text>
+                                <Text style={style.listItemText2}>{rate}</Text>
                             </View>
                             <Text style={style.listItemText3}>预期年化</Text>
                         </View>

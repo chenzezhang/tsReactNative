@@ -71,6 +71,7 @@ export default StyleSheet.create({
         lineHeight: 45,
         fontSize: 32,
         color: '#FF211A',
+        fontWeight: 'bold'
     },
     leftText2: {
         fontSize: 17,
@@ -96,6 +97,7 @@ export default StyleSheet.create({
         lineHeight: 45,
         fontSize: 32,
         color: '#333',
+        fontWeight: 'bold'
     },
     rightText2: {
         fontSize: 17,
@@ -117,7 +119,7 @@ export default StyleSheet.create({
         height: 22,
         lineHeight: 22,
         textAlign: 'center',
-        color: '#fff'
+        color: '#3E310F',
     },
     bottomTip: {
         width: 145,
