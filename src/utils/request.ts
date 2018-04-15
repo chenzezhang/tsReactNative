@@ -85,7 +85,7 @@ class netWrok implements netParams{
         const res = await fetch(http + this.url + symbol + 't=' + new Date().valueOf(), {
             method: this.method,
             headers: { ...headers },
-            body: date
+            body: date || null
         });
         return res.json();
     }
