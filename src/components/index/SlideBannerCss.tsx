@@ -10,7 +10,7 @@ export default StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center',
     backgroundColor: '#fff',
-    width: 375,
+    flex: 1,
     height: 125,
     top: 0,
     paddingTop: 16,
