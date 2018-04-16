@@ -26,7 +26,6 @@ export default StyleSheet.create({
         left: 15,
         width: 95,
         alignItems: 'flex-start', 
-        justifyContent: 'center',
         flexDirection: 'row',
     },
     headerLeftImage: {
@@ -128,5 +127,20 @@ export default StyleSheet.create({
         fontSize: 11,
         textAlign: 'center',
         lineHeight: 16,
+    },
+    gomeBac: {
+        width: 345,
+        height: 110,
+        marginTop: 24,
+        marginLeft: 16,
+        marginBottom: 24
+    },
+    gomeBacText: {
+        fontSize: 14,
+        color: '#974D0D',
+        height: 26,
+        lineHeight: 26,
+        marginLeft: 8,
+        marginTop: 20
     }
 });

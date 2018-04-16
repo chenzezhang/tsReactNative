@@ -27,6 +27,7 @@ import { TabBarBottom, TabNavigatorConfig } from 'react-navigation';
  */
 
 interface navigationOptions {
+    header?: any;
     headerTitle?: any;
     headerRight?: any;
     headerLeft?: any;
@@ -68,6 +69,7 @@ interface tabOptions {
 
 class StackNavigationOptions implements navigationOptions {
 
+    header?: any;
     headerTitle?: any;
     headerRight?: any;
     headerLeft?: any;
@@ -75,12 +77,14 @@ class StackNavigationOptions implements navigationOptions {
     headerTintColor?: Object;
     
     constructor(
+        header?: any,
         headerTitle?: any,
         headerRight?: any,
         headerLeft?: any,
         headerStyle?: any,
         headerTintColor?: Object)
     {
+        this.header = header;
         this.headerTitle = headerTitle;
         this.headerRight = headerRight;
         this.headerLeft = headerLeft;
@@ -94,6 +98,7 @@ class StackNavigationOptions implements navigationOptions {
         }
 
         return {
+            header: this.header,
             headerTitle: this.headerTitle,
             headerRight: this.headerRight,
             headerLeft: this.headerLeft,
@@ -103,7 +108,8 @@ class StackNavigationOptions implements navigationOptions {
             headerTintColor: this.headerTintColor,
             headerBackTitle: null,
             headerTruncatedBackTitle: null,
-            headerTitleStyle: null
+            headerTitleStyle: null,
+            
         }
     }
 
@@ -173,9 +179,11 @@ const tabOptions: TabNavigatorConfig = {
     swipeEnabled: false,
     animationEnabled: false,
     tabBarOptions: {
+        indicatorStyle: {height: 0},
         style: {
             backgroundColor: '#ffffff',
-            height: 52
+            height: 52,
+            borderTopColor: '#fff'
         },
         activeBackgroundColor: '#ffffff',
         activeTintColor: '#C2A357',
@@ -188,8 +196,8 @@ const tabOptions: TabNavigatorConfig = {
         },
         showIcon: true,
     },
-    tabBarComponent: TabBarBottom,
-    lazy: true
+    lazy: true,
+    
 }
 
 export {

@@ -1,6 +1,6 @@
 import * as React from 'react';
 
-import { View, TouchableOpacity, Text, StyleSheet, Image } from 'react-native';
+import { View, TouchableOpacity, Text, StyleSheet, Image, StatusBar } from 'react-native';
 
 import ListViewContent from './../utils/ListView';
 
@@ -10,6 +10,9 @@ import { navigation } from './../utils/result';
 import TitleBackground from './../components/header/titleBackground';
 import SlideBanner from './../components/index/SlideBanner';
 import List from './../components/index/list';
+import Spacing from './../components/index/Spacing';
+
+
 
 interface IContainerProps {
   navigation: any
@@ -19,7 +22,7 @@ const dimensions = require("Dimensions");
 
 const { width, height } = dimensions.get("window");
 
-const ListViewHeight = height - 52;
+const ListViewHeight = height - 54;
 
 export default class Index extends React.Component<IContainerProps> {
 
@@ -34,27 +37,31 @@ export default class Index extends React.Component<IContainerProps> {
 
   render() {
     const { navigate } = this.props.navigation;
-    console.log(height,'++++++')
+    // <TouchableOpacity onPressIn={() => navigate('Header', {test:111,aaa:33333}, {})}>
+    //     <Text>test onpressin ++++++</Text>
+    //   </TouchableOpacity>
     const views = (
-      <View >
+      <View>
         <View style={style.view}>
           <View style={style.showMess}>
             <Image style={style.image} source={require('./../static/index/noLogin.png')} />
           </View>
         </View>
-        <SlideBanner />
-        <View style={{backgroundColor: '#f0f0f0', height: 10}} />
         <List />
       </View>
     )
 
     return (
       <View>
+        <StatusBar translucent={true} barStyle={'light-content'} />
         <TitleBackground background={require('./../static/index/dropdown.png')} />
-        <ListViewContent style={{top: -54, height: ListViewHeight}} children={ views } /> 
-     </View>
+        {/* <View>
+          <ViewHeader />
+        </View> */}
+        <ListViewContent style={{ top: 0, height: ListViewHeight }} children={views} />
+      </View>
     );
-  
+
   }
 }
 
@@ -63,7 +70,7 @@ const style = StyleSheet.create({
     justifyContent: 'center',
     flexDirection: 'row',
     width: 375,
-    height: 229,
+    height: 164,
     overflow: 'hidden',
     flex: 1,
   },
@@ -73,7 +80,7 @@ const style = StyleSheet.create({
     justifyContent: 'center',
     position: 'absolute',
     flexDirection: 'row',
-    top: 68
+    top: 0
   },
   image: {
     width: 257,
