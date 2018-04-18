@@ -41,3 +41,5 @@ npm run iosbundle
 ```
 https://github.com/crazycodeboy/react-native-splash-screen/issues/167
 ```
+
+> ### swiper 和 启动屏幕插件 修改了node_modules 包，具体请查看 node_module.zip
