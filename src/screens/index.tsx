@@ -55,9 +55,6 @@ export default class Index extends React.Component<IContainerProps> {
       <View>
         <StatusBar translucent={true} barStyle={'light-content'} />
         <TitleBackground background={require('./../static/index/dropdown.png')} />
-        {/* <View>
-          <ViewHeader />
-        </View> */}
         <ListViewContent style={{ top: 0, height: ListViewHeight }} children={views} />
       </View>
     );
