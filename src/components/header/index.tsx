@@ -35,7 +35,8 @@ const style = StyleSheet.create({
         height: 64,
         paddingTop: 30,
         backgroundColor: 'rgba(0,0,0,0)',
-        justifyContent: 'space-between'
+        justifyContent: 'space-between',
+        top: 0
     }
 
 });
