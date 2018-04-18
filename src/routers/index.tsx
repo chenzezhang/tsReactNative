@@ -29,7 +29,8 @@ const IndexNavigator = StackNavigator({
         screen: Index,
         navigationOptions: ({ navigation, screenProps }: any) => ({
             ...new StackNavigationOptions(
-               '',
+                null,
+               '首页',
                 (<HeaderRight text={'登录'}/>), 
                 (<HeaderLeft userInfoImage={require('./../static/index/headTip.png')} />),
                 { backgroundColor: null, borderBottomWidth: null, borderBottomColor: null},
