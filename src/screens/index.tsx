@@ -40,7 +40,7 @@ export default class Index extends React.Component<props, state> {
   }
 
   opacity(opacity: number): any {
-    this.setState({opacity: opacity / 160})
+    this.setState({opacity: opacity / 190})
   }
 
   render() {
@@ -64,7 +64,7 @@ export default class Index extends React.Component<props, state> {
         <StatusBar translucent={true} barStyle={'light-content'} />
         <TitleBackground background={require('./../static/index/dropdown.png')} />
         <ListViewContent style={{ height: ListViewHeight }} children={views} opacity={this.opacity.bind(this)} />
-        <ViewHeader style={{position: 'absolute', top: 0, backgroundColor: 'rgba(0,0,0,'+ this.state.opacity +')'}} />
+        <ViewHeader style={{position: 'absolute', top: 0, backgroundColor: 'rgba(55,55,55,'+ this.state.opacity +')'}} />
       </View>
     );
 

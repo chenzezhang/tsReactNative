@@ -3,7 +3,7 @@
  */
 
 import netWrok from './request';
-import { indexBanner } from './api';
+import { indexBanner, configActive } from './api';
 
 
 // 底部导航栏
@@ -12,6 +12,12 @@ const navigation = async () => {
     return data;
 }
 
+// 首页活动标的
+const listInvest = async () => {
+    const { data } = await new netWrok(configActive, 'get', {}).request();
+    return data;
+}
+
 export {
-    navigation
+    navigation, listInvest
 };

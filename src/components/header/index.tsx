@@ -33,8 +33,8 @@ const style = StyleSheet.create({
         flexDirection: 'row',
         alignItems: 'center',
         height: 64,
-        paddingTop: 30,
-        backgroundColor: 'rgba(0,0,0,0)',
+        paddingTop: 10,
+        backgroundColor: 'rgba(55,55,55,0)',
         justifyContent: 'space-between',
         top: 0
     }
