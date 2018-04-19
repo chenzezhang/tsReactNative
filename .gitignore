@@ -64,3 +64,6 @@ ios/main.jsbundle
 ios/mian.jsbundle.meta
 ios/rockzcReactnative/AppDelegate.m
 ios/rockzcReactnative/Info.plist
+ios/index.ios.jsbundle
+ios/index.ios.jsbundle.meta
+node_modules.zip
