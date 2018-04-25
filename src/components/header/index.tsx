@@ -5,9 +5,11 @@ import { View, Image, ImageURISource, StyleSheet } from 'react-native';
 import HeaderCentent from './headerCentent';
 import HeaderLeft from './headerLeft';
 import HeaderRight from './headerRight';
+import { Header } from '../../screens/Header';
 
 interface props {
-    style?: any
+    style?: any;
+    opacity?: number;
 }
 
 /**
@@ -20,6 +22,7 @@ class ViewHeader extends React.Component<props> {
         return (
             <View style={[style.ViewHeader, {...this.props.style}]}>
                 <HeaderLeft userInfoImage={require('./../../static/index/headTip.png')} />
+                <HeaderCentent logoImage = {require('./../../static/index/logo.png')} opacity={this.props.opacity} />
                 <HeaderRight text={'登录'} />
             </View>
         )

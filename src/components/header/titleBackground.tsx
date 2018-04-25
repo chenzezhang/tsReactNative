@@ -1,6 +1,8 @@
 import * as React from 'react';
 import { View, Image, ImageURISource, StyleSheet, StatusBar } from 'react-native';
 
+import { navigation } from './../../utils/result';
+
 /**
  * @param {background} 背景图片地址
  * 获取屏幕的高度和宽度 对背景图进行
@@ -14,13 +16,34 @@ interface props  {
     background: ImageURISource
 }
 
-export default class TitleBackground extends React.Component<props, {}> {
+interface state {
+    url: string;
+}
 
+export default class TitleBackground extends React.Component<props, state> {
+    
+    state = {
+        url: '',
+    }
+
+    componentWillMount() {
+        
+        navigation().then(res => {
+            this.setState({ url: res.indexBackground.url});
+            console.log(this.state)
+        })
+
+    }
+    
     render() {
+
         const { background } = this.props;
+
+        const { url } = this.state;
+
     return (
         <View style={style.views}>
-            <Image  style={style.image} source={background} />
+            <Image style={style.image} source={url ? { uri: url } : background} />            
         </View>
     );
   }

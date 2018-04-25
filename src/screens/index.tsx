@@ -8,7 +8,6 @@ import { Todo } from './../actions/actionType';
 import SplashScreen from 'react-native-splash-screen'
 import { navigation } from './../utils/result';
 import TitleBackground from './../components/header/titleBackground';
-import SlideBanner from './../components/index/SlideBanner';
 import List from './../components/index/list';
 import Spacing from './../components/index/Spacing';
 import { ViewHeader } from './../components/header';
@@ -18,7 +17,6 @@ const dimensions = require("Dimensions");
 const { width, height } = dimensions.get("window");
 
 const ListViewHeight = height - 54;
-
 
 interface props {
   navigation: any
@@ -64,7 +62,7 @@ export default class Index extends React.Component<props, state> {
         <StatusBar translucent={true} barStyle={'light-content'} />
         <TitleBackground background={require('./../static/index/dropdown.png')} />
         <ListViewContent style={{ height: ListViewHeight }} children={views} opacity={this.opacity.bind(this)} />
-        <ViewHeader style={{position: 'absolute', top: 0, backgroundColor: 'rgba(55,55,55,'+ this.state.opacity +')'}} />
+        <ViewHeader style={{position: 'absolute', top: 0, backgroundColor: 'rgba(55,55,55,'+ this.state.opacity +')'}} opacity={this.state.opacity}/>
       </View>
     );
 
