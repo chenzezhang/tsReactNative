@@ -24,7 +24,7 @@ export default StyleSheet.create({
     },
     headerLeft: {
         left: 15,
-        width: 95,
+        width: 120,
         alignItems: 'flex-start', 
         flexDirection: 'row',
     },
@@ -57,12 +57,11 @@ export default StyleSheet.create({
     },
     listCententItemCentent: {
         height: 170,
-        paddingLeft: 63,
-        paddingRight: 62,
+        alignItems: 'center', 
     },
     left: {
         height: 65,
-        width: 100,
+        width: 120,
         justifyContent: 'center'
     },
     leftText1: {
@@ -70,7 +69,7 @@ export default StyleSheet.create({
         lineHeight: 45,
         fontSize: 32,
         color: '#FF211A',
-        fontWeight: 'bold'
+        fontWeight: 'bold',
     },
     leftText2: {
         fontSize: 17,

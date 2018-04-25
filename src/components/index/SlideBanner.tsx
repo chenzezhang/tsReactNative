@@ -8,28 +8,32 @@ import { navigation } from './../../utils/result';
  * @param {slideImg}
  *  滑动banner
  */
-interface props  {
+interface props {
     slideImg?: ImageURISource;
 }
 interface IState {
     indexBannerList: string[];
+    subjectUrl: string;
+    inletCopycolor: string;
 }
 export default class SlideBanner extends React.Component<props, IState> {
 
     state = {
+        subjectUrl: '',
+        inletCopycolor: '',
         indexBannerList: []
     }
 
-    componentWillMount() { 
+    componentWillMount() {
         navigation().then(res => {
-            this.setState({ indexBannerList: res.indexBannerList.map((item: any) => item.imageUrl) });
+            this.setState({ indexBannerList: res.indexBannerList.map((item: any) => item.imageUrl), subjectUrl: res.indexBackground.subjectUrl, inletCopycolor: res.indexBackground.inletCopycolor });
         })
     }
 
     render() {
 
         const { slideImg } = this.props;
-        const { indexBannerList } = this.state;
+        const { indexBannerList, subjectUrl, inletCopycolor } = this.state;
 
         {/*
         * 这里兼容Swiper 在安卓下不能正常显示图片的bug,不要问我为什么，因为我也不知道。
@@ -40,13 +44,13 @@ export default class SlideBanner extends React.Component<props, IState> {
                 dot={<View style={style.dot} />}
                 activeDot={<View style={style.activeDot} />}
                 paginationStyle={{
-            bottom: 5
+                    bottom: 5
                 }}>
-                {indexBannerList.map((item, i) => 
+                {indexBannerList.map((item, i) =>
                     <View key={item}>
-                        <Image style={{height: 89, width: 375}} source={{ uri: item }}/>
+                        <Image style={{ height: 89, width: 375 }} source={{ uri: item }} />
                     </View>
-                )}      
+                )}
             </Swiper>
         )
         const iosSwiperView = (
@@ -54,21 +58,27 @@ export default class SlideBanner extends React.Component<props, IState> {
                 dot={<View style={style.dot} />}
                 activeDot={<View style={style.activeDot} />}
                 paginationStyle={{
-            bottom: 5
+                    bottom: 5
                 }}>
-                {indexBannerList.map((item, i) => 
+                {indexBannerList.map((item, i) =>
                     <View key={item}>
-                        <Image style={{height: 89, width: 346}} source={{ uri: item }}/>
+                        <Image style={{ height: 89, width: 346 }} source={{ uri: item }} />
                     </View>
-                )}      
+                )}
             </Swiper>
         )
 
-    return (
-        
-        <View style={style.container}>
-            {Platform.OS === 'android' ? androidSwiperView :iosSwiperView }
-        </View>
-    );
-  }
+        return (
+
+            <View>
+                {subjectUrl? <View style={{height: 154, backgroundColor: this.state.inletCopycolor}}>
+                    <Image source={{ uri: subjectUrl }} style={{height: 154}} />
+                </View> : null}
+                <View style={style.container}>
+                    {Platform.OS === 'android' ? androidSwiperView : iosSwiperView}
+                </View>
+
+            </View>
+        );
+    }
 }

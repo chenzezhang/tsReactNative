@@ -7,6 +7,8 @@ import ListItem from './ListItem';
 import Spacing from './../Spacing';
 import SlideBanner from './../SlideBanner';
 
+import { listInvest } from './../../../utils/result';
+
 /**
  * @param {}
  *  标的
@@ -17,15 +19,30 @@ interface props {
 }
 
 interface IState {
-
+    investSelectFinace: object[];
 }
 export default class List extends React.Component<props, IState> {
 
     state = {
+        investSelectFinace: [{
+            loanTitle: '',
+            rate: 0,
+            raiseRate: 0,
+            days: 0
+          }],
+    }
 
+    componentWillMount() {
+        listInvest().then(res => {
+            this.setState({ investSelectFinace: res.investSelect.investSelectFinace.list });
+        })
     }
 
     render() {
+
+        const { investSelectFinace } = this.state;
+
+        const { loanTitle, rate, raiseRate, days } = investSelectFinace[0];
 
         return (
             <View style={style.container}>
@@ -44,19 +61,19 @@ export default class List extends React.Component<props, IState> {
                         </ImageBackground>
                     </View>
                     <View style={style.listCententItem}>
-                        <Header tip={'新人专享'} title={'一个很独特的标的。'} />
+                        <Header tip={'新人专享'} title={loanTitle} />
                         <View style={style.listCententItemCentent}>
                             <View style={style.pubView}>
                                 <View style={style.left}>
                                     <View style={style.pubView}>
-                                        <Text style={style.leftText1}>7.2</Text>
-                                        <Text style={style.leftText2}>%</Text>
+                                        <Text style={style.leftText1}>{(rate - raiseRate) / 100}</Text>
+                                        <Text style={style.leftText2}>%{raiseRate > 0 ? <Text> + {raiseRate / 100}%</Text> : null}</Text>
                                     </View>
                                     <Text style={style.leftText3}>预期年化</Text>
                                 </View>
                                 <View style={style.right}>
                                     <View style={style.pubView}>
-                                        <Text style={style.rightText1}>187</Text>
+                                        <Text style={style.rightText1}>{days}</Text>
                                         <Text style={style.rightText2}>天</Text>
                                     </View>
                                     <Text style={style.leftText3}>期限</Text>
