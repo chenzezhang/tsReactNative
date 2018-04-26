@@ -43,7 +43,7 @@ export default class TitleBackground extends React.Component<props, state> {
 
     return (
         <View style={style.views}>
-            <Image style={style.image} source={url ? { uri: url } : background} />            
+            <Image style={style.image} source={url ? { uri: url } : background} />
         </View>
     );
   }

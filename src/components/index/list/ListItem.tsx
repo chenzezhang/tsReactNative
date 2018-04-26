@@ -6,7 +6,6 @@ import Header from './header';
 
 interface Props {
     refresh: string;
-    date: string;
     sourceImag: ImageURISource;
     tip: string;
     title: string;
@@ -23,12 +22,11 @@ export default class ListItem extends React.Component<Props, State> {
     }
     static defaultProps = {
         refresh: 0,
-        date: 0,
         sourceImag: require('./../../../static/index/button.png')
     }
 
     render() {
-        const { refresh, date, sourceImag, tip, title } = this.props;
+        const { refresh, sourceImag, tip, title } = this.props;
         const { rate } = this.state;
         return (
             <View>

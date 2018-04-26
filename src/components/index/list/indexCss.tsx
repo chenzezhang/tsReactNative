@@ -29,11 +29,11 @@ export default StyleSheet.create({
         flexDirection: 'row',
     },
     headerLeftImage: {
-        top: 3
+        top: 3,
+        height: 16,
+        width: 16,
     },
     headerLeftText: {
-        fontSize: 16,
-        color: '#6C6C4B',
         lineHeight: 22,
         left: 4
     },
