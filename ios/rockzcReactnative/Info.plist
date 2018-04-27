@@ -9,7 +9,7 @@
 	<key>CFBundleExecutable</key>
 	<string>$(EXECUTABLE_NAME)</string>
 	<key>CFBundleIdentifier</key>
-	<string>org.reactjs.native.example.$(PRODUCT_NAME:rfc1034identifier)</string>
+	<string>$(PRODUCT_BUNDLE_IDENTIFIER)</string>
 	<key>CFBundleInfoDictionaryVersion</key>
 	<string>6.0</string>
 	<key>CFBundleName</key>
@@ -28,13 +28,13 @@
 	<dict>
 		<key>NSExceptionDomains</key>
 		<dict>
-			<key>m.gomefinance.com.cn</key>
-			<dict/>
 			<key>localhost</key>
 			<dict>
 				<key>NSExceptionAllowsInsecureHTTPLoads</key>
 				<true/>
 			</dict>
+			<key>m.gomefinance.com.cn</key>
+			<dict/>
 		</dict>
 	</dict>
 	<key>NSLocationWhenInUseUsageDescription</key>
