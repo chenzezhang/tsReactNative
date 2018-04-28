@@ -6,7 +6,6 @@ import ListViewContent from './../utils/ListView';
 
 import { Todo } from './../actions/actionType';
 import SplashScreen from 'react-native-splash-screen'
-import { navigation } from './../utils/result';
 import TitleBackground from './../components/header/titleBackground';
 import List from './../components/index/list';
 import Spacing from './../components/index/Spacing';
@@ -53,7 +52,7 @@ export default class Index extends React.Component<props, state> {
             <Image style={style.image} source={require('./../static/index/noLogin.png')} />
           </View>
         </View>
-        <List />
+        <List navigation={navigate} />
       </View>
     )
 

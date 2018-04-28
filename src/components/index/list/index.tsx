@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { View, Text, Image, ImageURISource, ImageBackground } from 'react-native';
+import { View, Text, Image, ImageURISource, ImageBackground, TouchableOpacity } from 'react-native';
 import style from './indexCss';
 import Header from './header';
 import LinearGradient from 'react-native-linear-gradient';
@@ -15,11 +15,12 @@ import { listInvest, listIndexApplication } from './../../../utils/result';
  */
 
 interface props {
-
+    navigation?: any
 }
 
 interface IState {
     indexNewPeople: object;
+    indexSayGood: object;
 }
 export default class List extends React.Component<props, IState> {
 
@@ -41,22 +42,34 @@ export default class List extends React.Component<props, IState> {
                 days: 0
             }]
         },
+        indexSayGood: {
+            title: '',
+            wordSize: '16',
+            color: '#6C6C4B',
+            rightLinkName: '',
+            iconUrl: '',
+            list: [{
+                url: '',
+                imageUrl: ''
+            }]
+        }
     }
-
     componentWillMount() {
         listIndexApplication().then(res => {
-            this.setState({ indexNewPeople: res.indexNewPeople });
+            this.setState({ indexNewPeople: res.indexNewPeople, indexSayGood: res.indexSayGood });
         })
     }
 
     render() {
 
-        const { indexNewPeople } = this.state;
+        const { indexNewPeople, indexSayGood } = this.state;
 
         const { title, wordSize, color, rightLinkName, list, iconUrl, everyDayProfit } = indexNewPeople;
 
         const { yearlyroe } = everyDayProfit;
 
+        const navigate = this.props.navigation;
+        
         return (
             <View style={style.container}>
                 <SlideBanner />
@@ -109,29 +122,29 @@ export default class List extends React.Component<props, IState> {
                     {/* 遍历结束 */}
                 </View>
 
-                <ListItem refresh={yearlyroe.toFixed(2)} sourceImag={require('./../../../static/index/button.png')} tip={'热卖理财'} title={'美宝保1号8376103829'} />
-                <ListItem refresh={'19'} sourceImag={require('./../../../static/index/button.png')} tip={'活期理财'} title={'每天盈'} />
+                <ListItem refresh={yearlyroe.toFixed(2)} sourceImag={require('./../../../static/index/button.png')} tip={'活期理财'} title={'每天盈'} />
 
                 <Spacing />
 
                 <View style={style.header}>
                     <View style={style.headerLeft}>
-                        <Image style={style.headerLeftImage} source={require('./../../../static/index/gomehao.png')} />
-                        <Text style={style.headerLeftText}>Gome号</Text>
+                        <Image style={style.headerLeftImage} source={indexSayGood.iconUrl ? { uri: indexSayGood.iconUrl } : require('./../../../static/index/gomehao.png')} />
+                        <Text style={[style.headerLeftText, {
+                                fontSize: parseInt(indexSayGood.wordSize),
+                                color: indexSayGood.color
+                            }]}>{indexSayGood.title}</Text>
                     </View>
                     <View style={style.headerRight}>
-                        <Text style={style.headerRightText}>
-                            更多 >
-                                </Text>
+                        <Text style={style.headerRightText}>{indexSayGood.rightLinkName}</Text>
                     </View>
                 </View>
                 <View>
-                    <ImageBackground style={style.gomeBac} source={require('./../../../static/index/gomoBac.png')}>
-                        <Text style={style.gomeBacText}>
-                            距离双十一****活动还有6天
-                        </Text>
-                    </ImageBackground>
+                    {
+                        indexSayGood.list.map((item, i) => <TouchableOpacity key={i} onPressIn={() => navigate('Header', {test:111,aaa:33333}, {})}><Image style={style.gomeBac} source={{ uri: item.imageUrl }} /></TouchableOpacity>)
+                    }
+                   
                 </View>
+                
             </View>
         );
     }

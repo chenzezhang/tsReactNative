@@ -130,16 +130,15 @@ export default StyleSheet.create({
     gomeBac: {
         width: 345,
         height: 110,
-        marginTop: 24,
         marginLeft: 16,
         marginBottom: 24
     },
-    gomeBacText: {
-        fontSize: 14,
-        color: '#974D0D',
-        height: 26,
-        lineHeight: 26,
-        marginLeft: 8,
-        marginTop: 20
-    }
+    // gomeBacText: {
+    //     fontSize: 14,
+    //     color: '#974D0D',
+    //     height: 26,
+    //     lineHeight: 26,
+    //     marginLeft: 8,
+    //     marginTop: 20
+    // }
 });
